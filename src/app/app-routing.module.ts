@@ -7,7 +7,7 @@ import { BikesDetailsComponent } from './bikes-details/bikes-details.component';
 const routes: Routes = [
   {path: '', component: BikesListComponent},
   {path: 'bikes', redirectTo: '', pathMatch:'full'},
-  {path: 'details', component: BikesDetailsComponent}
+  {path: 'station/:id', component: BikesDetailsComponent}
 ];
 
 @NgModule({
