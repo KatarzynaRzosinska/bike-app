@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { tileLayer, latLng, marker, icon } from 'leaflet';
+import { tileLayer, latLng, marker, icon, tooltip, } from 'leaflet';
 import { StationService } from '../shared/station.srevice';
 import { ActivatedRoute } from '@angular/router';
 import { StationInterface } from '../shared/station.interface';
@@ -18,8 +18,9 @@ export class BikesDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private stationService: StationService,) { }
 
 
-  showMap(geometry){
-   this.marker = marker([geometry[1],geometry[0]]);
+  showMap(geometry, bikes){
+   this.marker = marker([geometry[1],geometry[0]]).bindTooltip(bikes,{permanent:true, direction:'right', className:"marker-label"});
+   //let label = tooltip({permanent:true, content:""}, this.marker)
       this.layers =[
         this.marker
       ]
@@ -37,7 +38,7 @@ export class BikesDetailsComponent implements OnInit {
     console.log ('id',this.stationId);
     this.station = this.stationService.stations.find( station => station.id === this.stationId);
     console.log ('station',this.station);
-    this.showMap(this.station.geometry);
+    this.showMap(this.station.geometry, this.station.bikes);
     console.log ('geometry',this.station.geometry);
   }
 
