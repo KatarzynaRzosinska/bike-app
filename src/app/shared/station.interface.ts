@@ -5,7 +5,7 @@
 
 export interface StationInterface {
     id: string;
-    geometry: [number, number];
+    coordinates: [number, number];
     free_racks: string;
     bikes: string;
     name: string;

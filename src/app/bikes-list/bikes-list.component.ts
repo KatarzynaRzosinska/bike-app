@@ -5,22 +5,27 @@ import { StationInterface } from '../shared/station.interface';
 @Component({
   selector: 'app-bikes-list',
   templateUrl: './bikes-list.component.html',
-  styleUrls: ['./bikes-list.component.scss'],
+  styleUrls: ['./bikes-list.component.scss']
 })
 export class BikesListComponent implements OnInit {
-  stations: StationInterface[] = [];
+  stations: StationInterface[];
+  error = null;
 
-
-  constructor(
-    private stationService: StationService,
-  ) {
-
-   }
+  constructor(private stationService: StationService) {}
 
   ngOnInit() {
-    this.stationService.GetBikesRequest();
-    // console.log('tutu',this.bikes);
-    this.stations = this.stationService.stations;
-  }
+    this.stationService.GetBikesRequest().subscribe(
+      stations => {
+        this.stationService.stationsList = stations;
+        this.stations = this.stationService.stationsList;
+      },
+      error => {
+        this.error = error.message;
+      }
+    );
 
+    // if (this.stationService.stationsList) {
+    //   this.stations = this.stationService.stationsList;
+    // }
+  }
 }

@@ -1,10 +1,17 @@
 <p>bikes-list works!</p>
 <div>
-    <div *ngFor= "let station of stations">
-        <div class="station" [routerLink]="['/station', station.id]" >
-            <h2>{{station.name}}</h2>
-            <div><span>Available bikes</span>{{station.bikes}}</div>
-            <div><span>Available places</span>{{station.free_racks}}</div>
-        </div>
+  <div *ngFor="let station of stations">
+    <div class="station" [routerLink]="['/station', station.id]">
+      <h2>{{ station.name }}</h2>
+      <div><span>Available bikes</span>{{ station.bikes }}</div>
+      <div><span>Available places</span>{{ station.free_racks }}</div>
     </div>
+  </div>
+  <p *ngIf="!statons && !error">
+    Loading...
+  </p>
+  <div class="alert alert-danger" *ngIf="error">
+    <h1>Oops... something went wrong.</h1>
+    <p>{{ error }}</p>
+  </div>
 </div>
