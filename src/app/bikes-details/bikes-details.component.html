@@ -1,5 +1,8 @@
-<div class="map" *ngIf= "options"
-     leaflet 
-     [leafletOptions]="options"
-     [leafletLayers]="layers">
-</div>
+<div
+  class="map"
+  *ngIf="options"
+  leaflet
+  [leafletOptions]="options"
+  [leafletLayers]="layers"
+></div>
+<app-single-station [station]="station"></app-single-station>

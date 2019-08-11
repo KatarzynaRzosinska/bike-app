@@ -1,0 +1,5 @@
+<div class="station" [routerLink]="['/station', station.id]">
+  <h2>{{ station.id }} {{ station.name }}</h2>
+  <div><span>Available bikes</span>{{ station.bikes }}</div>
+  <div><span>Available places</span>{{ station.free_racks }}</div>
+</div>
