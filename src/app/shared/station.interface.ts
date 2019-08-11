@@ -1,11 +1,11 @@
-import { Point } from 'leaflet';
+
 
 //import { Point } from 'geojson';
 //a może ten z lefletu nie wiem jeszcze
 
 export interface StationInterface {
     id: string;
-    //geometry: Point;
+    geometry: [number, number];
     free_racks: string;
     bikes: string;
     name: string;

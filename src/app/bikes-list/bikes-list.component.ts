@@ -8,23 +8,7 @@ import { StationInterface } from '../shared/station.interface';
   styleUrls: ['./bikes-list.component.scss'],
 })
 export class BikesListComponent implements OnInit {
-  stations: StationInterface[] = [
-    {
-      id: '1',
-      //  geometry: (16.9116229,52.4028313),
-      free_racks: '11',
-      bikes: '4',
-      name: 'Park Willsona'
-      
-    }, 
-    {
-      id: '2',
-      // geometry: [16.9116229,52.4028313],
-      free_racks: '12',
-      bikes: '2',
-      name: 'Park Willsona'
-    }
-  ];;
+  stations: StationInterface[] = [];
 
 
   constructor(
@@ -36,6 +20,7 @@ export class BikesListComponent implements OnInit {
   ngOnInit() {
     this.stationService.GetBikesRequest();
     // console.log('tutu',this.bikes);
+    this.stations = this.stationService.stations;
   }
 
 }
