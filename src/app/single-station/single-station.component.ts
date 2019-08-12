@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { StationService } from '../shared/station.srevice';
+import { StationService } from '../shared/station.service';
 import { StationInterface } from '../shared/station.interface';
 
 @Component({

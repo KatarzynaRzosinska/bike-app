@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { tileLayer, latLng, marker, icon, Marker } from 'leaflet';
-import { StationService } from '../shared/station.srevice';
+import { StationService } from '../shared/station.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { StationInterface } from '../shared/station.interface';
 
