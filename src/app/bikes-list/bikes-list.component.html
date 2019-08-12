@@ -1,14 +1,15 @@
-<div>
-  <app-single-station
-    *ngFor="let station of stations"
-    [station]="station"
-  ></app-single-station>
+<div
+  class="station"
+  *ngFor="let station of stations"
+  [routerLink]="['/station', station.id]"
+>
+  <app-single-station [station]="station"></app-single-station>
+</div>
 
-  <p *ngIf="!statons && !error">
-    Loading...
-  </p>
-  <div class="alert alert-danger" *ngIf="error">
-    <h1>Oops... something went wrong.</h1>
-    <p>{{ error }}</p>
-  </div>
+<p *ngIf="!statons && !error">
+  Loading...
+</p>
+<div class="alert alert-danger" *ngIf="error">
+  <h1>Oops... something went wrong.</h1>
+  <p>{{ error }}</p>
 </div>

@@ -1,5 +1,13 @@
-<div class="station" [routerLink]="['/station', station.id]">
-  <h2>{{ station.id }} {{ station.name }}</h2>
-  <div><span>Available bikes</span>{{ station.bikes }}</div>
-  <div><span>Available places</span>{{ station.free_racks }}</div>
+<div class="station">
+  <h3>{{ station.id }} {{ station.name }}</h3>
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 inner-box">
+      <span>Available bikes</span>
+      <h2>{{ station.bikes }}</h2>
+    </div>
+    <div class="col-xs-6 col-sm-6 inner-box">
+      <span>Available places</span>
+      <h2>{{ station.free_racks }}</h2>
+    </div>
+  </div>
 </div>

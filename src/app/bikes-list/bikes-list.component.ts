@@ -23,6 +23,7 @@ export class BikesListComponent implements OnInit {
         this.error = error.message;
       }
     );
+    console.log(!this.stations);
 
     // if (this.stationService.stationsList) {
     //   this.stations = this.stationService.stationsList;

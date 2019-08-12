@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { tileLayer, latLng, marker, icon, tooltip } from 'leaflet';
 import { StationService } from '../shared/station.srevice';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { StationInterface } from '../shared/station.interface';
 
 @Component({
@@ -43,6 +43,9 @@ export class BikesDetailsComponent implements OnInit {
   ngOnInit() {
     this.stationId = this.route.snapshot.params['id'];
     console.log('id', this.stationId);
+    // this.route.params.subscribe((params: Params) => {
+    //   this.stationId = params['id'];
+    // });
     this.station = this.stationService.stationsList.find(
       station => station.id === this.stationId
     );
