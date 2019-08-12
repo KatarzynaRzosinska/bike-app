@@ -43,9 +43,9 @@ export class BikesDetailsComponent implements OnInit {
   ngOnInit() {
     this.stationId = this.route.snapshot.params['id'];
     console.log('id', this.stationId);
-    // this.route.params.subscribe((params: Params) => {
-    //   this.stationId = params['id'];
-    // });
+    this.route.params.subscribe((params: Params) => {
+      this.stationId = params['id'];
+    });
     this.station = this.stationService.stationsList.find(
       station => station.id === this.stationId
     );

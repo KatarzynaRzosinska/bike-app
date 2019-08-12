@@ -12,9 +12,5 @@ export class SingleStationComponent implements OnInit {
 
   constructor(private stationService: StationService) {}
 
-  ngOnInit() {
-    // this.station= this.stationService.stationsList.find(
-    //   station => station.id === {'to co przyszło w parametrze do komponentuu'}
-    //);
-  }
+  ngOnInit() {}
 }

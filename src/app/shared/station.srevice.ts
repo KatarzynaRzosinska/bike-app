@@ -1,7 +1,7 @@
 import { StationInterface } from './station.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class StationService {
@@ -13,7 +13,10 @@ export class StationService {
       .get<StationInterface[]>(
         'http://www.poznan.pl/mim/plan/map_service.html?mtype=pub_transport&co=stacje_rowerowe'
       )
-      .pipe(map(requestData => this.transformStationsData(requestData)));
+      .pipe(
+        map(requestData => this.transformStationsData(requestData)),
+        tap(stations => (this.stationsList = stations))
+      );
     //   .subscribe(stations => {
     //     this.stationsList = stations;
     //     console.log('lista', this.stationsList);
@@ -36,7 +39,6 @@ export class StationService {
       };
       stationsToBeReturned.push(newStation);
     });
-    console.log('rudej', stationsToBeReturned);
     return stationsToBeReturned;
   }
 }
