@@ -1,10 +1,19 @@
+@import '../../styles.scss';
 .station {
   padding: 20px;
 
   .inner-box {
-    //   position: relative;
-    //   display: inline;
+    display: inline-grid;
     padding: 20px;
     text-align: center;
+
+    .icon {
+      width: 30px;
+      height: 30px;
+      margin: 5px;
+    }
+    .bike-color {
+      color: $bike-color;
+    }
   }
 }

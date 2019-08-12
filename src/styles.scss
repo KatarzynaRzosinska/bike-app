@@ -1,13 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
-.marker-label{
-    font-size: 24px;
-    font-weight:bold;
-    background: none !important;
-    border: none !important;
-    color: green !important;
-    text-shadow: none!important;
-    box-shadow: none !important;
-outline: none!important;
- &:before {border: none !important};
+//variables
+$bike-color: #65d197;
 
+body {
+  font-family: Arial, sans-serif;
+}
+@media (min-width: 992px) {
+  h1 {
+    font-size: 3em;
+  }
+}
+
+.marker-label {
+  font-size: 32px;
+  font-weight: bold;
+  background: none !important;
+  border: none !important;
+  color: $bike-color !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  margin-left: 15px !important;
+  outline: none !important;
+  &:before {
+    border: none !important;
+  }
 }

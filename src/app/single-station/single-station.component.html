@@ -1,13 +1,25 @@
 <div class="station">
-  <h3>{{ station.id }} {{ station.name }}</h3>
+  <h3>
+    <b>{{ station.id }} {{ station.name }}</b>
+  </h3>
   <div class="row">
-    <div class="col-xs-6 col-sm-6 inner-box">
+    <div class="col-6 inner-box">
+      <div>
+        <img src="../assets/icons/bike.svg" class="icon" alt="back arrow" />
+      </div>
       <span>Available bikes</span>
-      <h2>{{ station.bikes }}</h2>
+      <h1 class="bike-color">
+        <b>{{ station.bikes }} </b>
+      </h1>
     </div>
-    <div class="col-xs-6 col-sm-6 inner-box">
+    <div class="col-6 inner-box">
+      <div>
+        <img src="../assets/icons/lock.svg" class="icon" alt="back arrow" />
+      </div>
       <span>Available places</span>
-      <h2>{{ station.free_racks }}</h2>
+      <h1>
+        <b>{{ station.free_racks }}</b>
+      </h1>
     </div>
   </div>
 </div>

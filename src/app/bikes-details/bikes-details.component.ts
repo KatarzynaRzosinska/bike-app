@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { tileLayer, latLng, marker, icon, tooltip } from 'leaflet';
+import { tileLayer, latLng, marker, icon } from 'leaflet';
 import { StationService } from '../shared/station.srevice';
 import { ActivatedRoute, Params } from '@angular/router';
 import { StationInterface } from '../shared/station.interface';
@@ -21,12 +21,17 @@ export class BikesDetailsComponent implements OnInit {
   ) {}
 
   showMap(coordinates, bikes) {
-    this.marker = marker([coordinates[1], coordinates[0]]).bindTooltip(bikes, {
+    this.marker = marker([coordinates[1], coordinates[0]], {
+      icon: icon({
+        iconSize: [35, 35],
+        iconUrl: '../assets/icons/map-icon.svg'
+      })
+    }).bindTooltip(bikes, {
       permanent: true,
       direction: 'right',
+      opacity: 1,
       className: 'marker-label'
     });
-    //let label = tooltip({permanent:true, content:""}, this.marker)
     this.layers = [this.marker];
     this.options = {
       layers: [
