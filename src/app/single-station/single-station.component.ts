@@ -10,7 +10,5 @@ import { StationInterface } from '../shared/station.interface';
 export class SingleStationComponent implements OnInit {
   @Input() station: StationInterface;
 
-  constructor(private stationService: StationService) {}
-
   ngOnInit() {}
 }

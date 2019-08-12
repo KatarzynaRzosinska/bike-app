@@ -17,10 +17,6 @@ export class StationService {
         map(requestData => this.transformStationsData(requestData)),
         tap(stations => (this.stationsList = stations))
       );
-    //   .subscribe(stations => {
-    //     this.stationsList = stations;
-    //     console.log('lista', this.stationsList);
-    //   });
   }
 
   transformStationsData(data) {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { tileLayer, latLng, marker, icon } from 'leaflet';
+import { tileLayer, latLng, marker, icon, Marker } from 'leaflet';
 import { StationService } from '../shared/station.srevice';
 import { ActivatedRoute, Params } from '@angular/router';
 import { StationInterface } from '../shared/station.interface';
@@ -10,17 +10,17 @@ import { StationInterface } from '../shared/station.interface';
   styleUrls: ['./bikes-details.component.scss']
 })
 export class BikesDetailsComponent implements OnInit {
-  stationId;
+  stationId: string;
   station: StationInterface;
   layers = [];
-  marker;
+  marker: Marker;
   options = {};
   constructor(
     private route: ActivatedRoute,
     private stationService: StationService
   ) {}
 
-  showMap(coordinates, bikes) {
+  showMap(coordinates: Array<number>, bikes: string) {
     this.marker = marker([coordinates[1], coordinates[0]], {
       icon: icon({
         iconSize: [35, 35],
@@ -45,17 +45,18 @@ export class BikesDetailsComponent implements OnInit {
     };
   }
 
-  ngOnInit() {
+  getStation() {
     this.stationId = this.route.snapshot.params['id'];
-    console.log('id', this.stationId);
     this.route.params.subscribe((params: Params) => {
       this.stationId = params['id'];
     });
     this.station = this.stationService.stationsList.find(
       station => station.id === this.stationId
     );
-    console.log('station', this.station);
+  }
+
+  ngOnInit() {
+    this.getStation();
     this.showMap(this.station.coordinates, this.station.bikes);
-    console.log('geometry', this.station.coordinates);
   }
 }

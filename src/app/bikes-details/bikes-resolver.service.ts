@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  Resolve,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot
-} from '@angular/router';
+import { Resolve } from '@angular/router';
 import { StationInterface } from '../shared/station.interface';
 import { StationService } from '../shared/station.srevice';
 
@@ -11,7 +7,7 @@ import { StationService } from '../shared/station.srevice';
 export class BikesResolverService implements Resolve<StationInterface[]> {
   constructor(private stationService: StationService) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  resolve() {
     return this.stationService.GetBikesRequest();
   }
 }

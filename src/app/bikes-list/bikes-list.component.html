@@ -6,7 +6,7 @@
   <app-single-station [station]="station"></app-single-station>
 </div>
 
-<p *ngIf="!statons && !error">
+<p *ngIf="!stations.length && !error">
   Loading...
 </p>
 <div class="alert alert-danger" *ngIf="error">

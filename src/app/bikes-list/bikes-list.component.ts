@@ -8,7 +8,7 @@ import { StationInterface } from '../shared/station.interface';
   styleUrls: ['./bikes-list.component.scss']
 })
 export class BikesListComponent implements OnInit {
-  stations: StationInterface[];
+  stations: StationInterface[] = [];
   error = null;
 
   constructor(private stationService: StationService) {}
@@ -16,17 +16,11 @@ export class BikesListComponent implements OnInit {
   ngOnInit() {
     this.stationService.GetBikesRequest().subscribe(
       stations => {
-        this.stationService.stationsList = stations;
-        this.stations = this.stationService.stationsList;
+        this.stations = stations;
       },
       error => {
         this.error = error.message;
       }
     );
-    console.log(!this.stations);
-
-    // if (this.stationService.stationsList) {
-    //   this.stations = this.stationService.stationsList;
-    // }
   }
 }
